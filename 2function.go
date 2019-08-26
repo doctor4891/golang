@@ -22,10 +22,24 @@ func Naked(a, b string) (c string) {
 	return
 }
 
+func MyFuncInFunc(myFunc func() int) int {
+	return myFunc()
+}
+
 func main() {
 	fmt.Println(Calc(1, 2))
 	fmt.Println(Swap("Hello", "World"))
 	fmt.Println(Naked("Naked", "digger"))
+
+	/*функция как значение*/
+	myFunc := func() int {
+		return 1
+	}
+	fmt.Println(myFunc()) //1
+
+	/*функцию можно передавать в функцию*/
+	fmt.Println(MyFuncInFunc(myFunc)) //1
+
 }
 
 /*Функция с большой буквы может быть доступна в другом пакете пакет.Функция. Функция с
